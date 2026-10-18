@@ -1,0 +1,78 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-bg: #FFFFFF;
+  --color-bg-soft: #F5F3F2;
+  --color-ink: #1A1A1A;
+  --color-ink-muted: #6B6B6B;
+  --color-line: #D9D6D2;
+  --color-accent: #9A8452;
+  --color-overlay: rgba(0, 0, 0, 0.45);
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    background-color: var(--color-bg);
+    color: var(--color-ink);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    overflow-x: hidden;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  }
+
+  ::selection {
+    background-color: #9A8452;
+    color: #FFFFFF;
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+::-webkit-scrollbar-track {
+  background: #F5F3F2;
+}
+::-webkit-scrollbar-thumb {
+  background: #D9D6D2;
+  border-radius: 2px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #9A8452;
+}
+
+/* Subtle luxury grain / backdrop effects */
+.bg-vignette {
+  background: radial-gradient(circle at center, transparent 30%, rgba(0, 0, 0, 0.7) 100%);
+}
+
+.text-gold-gradient {
+  background: linear-gradient(135deg, #B8A26E 0%, #9A8452 50%, #766336 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Hide scrollbar utility */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
